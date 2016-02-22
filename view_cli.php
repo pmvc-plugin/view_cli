@@ -1,5 +1,5 @@
 <?php
-namespace PMVC\PlugIn\view_cli;
+namespace PMVC\PlugIn\view;
 
 ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\view_cli';
 
