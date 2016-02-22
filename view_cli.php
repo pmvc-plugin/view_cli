@@ -8,6 +8,6 @@ class view_cli extends ViewEngine
     public function process()
     {
         $all = $this->get();
-        \PMVC\plug('cmd')->dump($all);
+        \PMVC\plug('cli')->dump($all,'%C');
     }
 }

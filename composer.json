@@ -13,7 +13,7 @@
     "require": {
         "pmvc/pmvc": "*",
         "pmvc-plugin/view": "*",
-        "pmvc-plugin/cmd": "*"
+        "pmvc-plugin/cli": "*"
     },
     "minimum-stability": "dev"
 }
