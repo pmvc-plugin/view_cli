@@ -1,0 +1,17 @@
+{
+    "name": "pmvc-plugin/view_cli",
+    "description": "Command line View engine",
+    "type": "library",
+    "keywords": ["cli", "pmvc", "plug-in"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hill",
+            "email": "hill@kimo.com"
+        }
+    ],
+    "require": {
+        "pmvc/pmvc": "*"
+    },
+    "minimum-stability": "dev"
+}
