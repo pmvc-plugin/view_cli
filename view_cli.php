@@ -13,4 +13,16 @@ class view_cli extends ViewEngine
         $all = $this->get();
         \PMVC\plug('cli')->dump($all,'%C');
     }
+
+    /**
+     * set veiw
+     */
+     public function set($k, $v=null)
+     {
+        if ($this['flush']) {
+            \PMVC\plug('cli')->dump($k.' '.$v,'%C');
+        } else {
+            return p\set($this->_view, $k, $v);
+        }
+     }
 }
