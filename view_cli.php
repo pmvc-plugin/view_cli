@@ -20,9 +20,9 @@ class view_cli extends ViewEngine
      public function set($k, $v=null)
      {
         if ($this['flush']) {
-            \PMVC\plug('cli')->dump($k.' '.$v,'%C');
+            return \PMVC\plug('cli')->dump($k.' '.$v,'%C');
         } else {
-            return p\set($this->_view, $k, $v);
+            return parent::set($k, $v);
         }
      }
 }
