@@ -11,7 +11,9 @@ class view_cli extends ViewEngine
             return;
         }
         $all = $this->get();
-        \PMVC\plug('cli')->dump($all,'%C');
+        if (!empty($all)) {
+            \PMVC\plug('cli')->dump($all,'%C');
+        }
     }
 
     /**
