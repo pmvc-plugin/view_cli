@@ -17,9 +17,10 @@ class view_cli extends ViewEngine
     }
 
     /**
-     * Set theme folder
+     * Set theme 
      */
     public function setThemeFolder($val) { }
+    public function setThemePath($val) { }
 
     /**
      * set veiw
