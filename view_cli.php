@@ -3,8 +3,25 @@ namespace PMVC\PlugIn\view;
 
 ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\view_cli';
 
+/**
+ * @parameters bool $flush 
+ * @parameters bool $plainText 
+ */
 class view_cli extends ViewEngine
 {
+
+    private function _dump()
+    {
+        $data = func_get_args();
+        $data = array_diff($data, [null]);
+        $data = join(': ', $data);
+        if ($this['plainText']) {
+            echo $data."\n";
+        } else {
+            \PMVC\plug('cli')->dump($data,'%C');
+        }
+    }
+
     public function process()
     {
         if (!empty($this['forward']->action)) {
@@ -12,7 +29,7 @@ class view_cli extends ViewEngine
         }
         $all = $this->get();
         if (!empty($all)) {
-            \PMVC\plug('cli')->dump($all,'%C');
+            $this->_dump($all);
         }
     }
 
@@ -28,7 +45,7 @@ class view_cli extends ViewEngine
      public function set($k, $v=null)
      {
         if ($this['flush']) {
-            return \PMVC\plug('cli')->dump($k.' '.$v,'%C');
+            $this->_dump($k, $v);
         } else {
             return parent::set($k, $v);
         }
