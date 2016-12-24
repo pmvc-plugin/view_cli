@@ -13,8 +13,11 @@ class view_cli extends ViewEngine
     private function _dump()
     {
         $data = func_get_args();
+        $data = \PMVC\plug('underscore')->array()->toQuery($data);
         $data = array_diff($data, [null]);
-        $data = join(': ', $data);
+        if (1 <= array_sum(array_keys($data))) {
+            $data = join(': ', $data);
+        }
         if ($this['plainText']) {
             echo $data."\n";
         } else {

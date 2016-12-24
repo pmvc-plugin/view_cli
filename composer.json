@@ -13,7 +13,9 @@
     "require": {
         "pmvc/pmvc": "*",
         "pmvc-plugin/view": "*",
-        "pmvc-plugin/cli": "*"
+        "pmvc-plugin/cli": "*",
+        "pmvc-plugin/underscore": "*"
+
     },
     "minimum-stability": "dev"
 }
