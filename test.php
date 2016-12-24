@@ -50,4 +50,17 @@ class View_cliTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected,$output);
     }
 
+    function testDumpK()
+    {
+        $v = \PMVC\plug($this->_plug);
+        $v['flush'] = 1;
+        $v['plainText'] = 1;
+        ob_start();
+        $v->set('k');
+        $output = ob_get_contents();
+        ob_end_clean();
+        $expected = 'k'."\n";
+        $this->assertEquals($expected,$output);
+    }
+
 }

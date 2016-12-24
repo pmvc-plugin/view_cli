@@ -15,7 +15,7 @@ class view_cli extends ViewEngine
         $data = func_get_args();
         $data = \PMVC\plug('underscore')->array()->toQuery($data);
         $data = array_diff($data, [null]);
-        if (1 <= array_sum(array_keys($data))) {
+        if (1 <= array_sum(array_map('is_int', array_keys($data)))) {
             $data = join(': ', $data);
         }
         if ($this['plainText']) {
