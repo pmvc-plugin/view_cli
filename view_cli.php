@@ -13,11 +13,13 @@ class view_cli extends ViewEngine
     private function _dump()
     {
         $data = func_get_args();
-        $data = \PMVC\plug('underscore')->array()->toQuery($data);
-        $data = array_diff($data, [null]);
-        if (1 <= array_sum(array_map('is_int', array_keys($data)))) {
+        if (!is_string($data[0]) && !is_numeric($data[0])) {
+            $data = \PMVC\plug('underscore')->array()->toQuery($data[0]);
+        } else {
+            $data = array_diff($data, [null]);
             $data = join(': ', $data);
         }
+
         if ($this['plainText']) {
             echo $data."\n";
         } else {
