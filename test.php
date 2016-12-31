@@ -28,7 +28,7 @@ class View_cliTest extends PHPUnit_Framework_TestCase
             ],
             'd'=>'e'
         ];
-        $v->appendView($arr);
+        $v->append($arr);
         ob_start();
         $v->process();
         $output = ob_get_contents();
