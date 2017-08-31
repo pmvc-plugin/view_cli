@@ -23,7 +23,7 @@ class view_cli extends ViewEngine
         if ($this['plainText']) {
             echo $data."\n";
         } else {
-            \PMVC\plug('cli')->dump($data,'%C');
+            \PMVC\plug('cli')->tree($data, '%C');
         }
     }
 
@@ -45,7 +45,7 @@ class view_cli extends ViewEngine
     public function setThemePath($val) { }
 
     /**
-     * set veiw
+     * Set veiw
      */
      public function set($k, $v=null)
      {
