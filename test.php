@@ -33,7 +33,7 @@ class View_cliTest extends PHPUnit_Framework_TestCase
         $v->process();
         $output = ob_get_contents();
         ob_end_clean();
-        $expected = "'a[b]' => 'c',";
+        $expected = "- [1;36ma[b][0m: 'c'";
         $this->assertContains($expected,$output);
     }
 
